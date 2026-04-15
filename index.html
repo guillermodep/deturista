@@ -331,10 +331,14 @@
 
   <!-- Contactship Widget -->
   <iframe
-    src="https://app.contactship.ai/widgets/4f870114-c144-4aaa-8af7-8bfaf6b95d80/embed?v=20250415"
+    id="contactship-widget"
     style="position:fixed;bottom:0;right:0;height:700px;width:400px;max-height:100vh;max-width:100vw;border:none;z-index:9999"
     allow="microphone">
   </iframe>
+  <script>
+    document.getElementById('contactship-widget').src =
+      'https://app.contactship.ai/widgets/4f870114-c144-4aaa-8af7-8bfaf6b95d80/embed?v=' + Date.now();
+  </script>
 
   <footer>
     <a href="https://www.deturista.com" target="_blank">deturista.com</a> — Vuelos, Hoteles, Paquetes y más!
