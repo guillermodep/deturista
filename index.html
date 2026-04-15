@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asistente Virtual | Contactship Demo</title>
+  <title>Juan de Turista | Asistente Virtual</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -15,9 +15,40 @@
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(180deg, #FFF5E6 0%, #FFE4C4 100%);
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #FF6B35;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(255, 107, 53, 0.3);
+    }
+
+    .logo-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-header img {
+      height: 40px;
+    }
+
+    .logo-header span {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    main {
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -25,149 +56,94 @@
       padding: 2rem;
     }
 
-    .container {
+    .intro {
       text-align: center;
-      max-width: 600px;
-    }
-
-    .logo {
-      width: 80px;
-      height: 80px;
-      background: white;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 2rem;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-    }
-
-    .logo svg {
-      width: 48px;
-      height: 48px;
-      color: #764ba2;
-    }
-
-    h1 {
-      color: white;
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-
-    p {
-      color: rgba(255,255,255,0.9);
-      font-size: 1.125rem;
-      line-height: 1.7;
       margin-bottom: 2rem;
     }
 
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: white;
-      color: #764ba2;
-      padding: 1rem 2rem;
-      border-radius: 50px;
+    .intro h1 {
+      color: #333;
+      font-size: 1.75rem;
       font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    }
-
-    .cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 30px rgba(0,0,0,0.3);
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .feature {
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(10px);
-      padding: 1.5rem;
-      border-radius: 16px;
-      color: white;
-    }
-
-    .feature-icon {
-      font-size: 2rem;
       margin-bottom: 0.5rem;
     }
 
-    .feature h3 {
+    .intro p {
+      color: #666;
       font-size: 1rem;
-      font-weight: 600;
     }
 
-    .arrow {
-      position: fixed;
-      bottom: 120px;
-      right: 60px;
-      color: white;
-      font-size: 1rem;
-      animation: bounce 2s infinite;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+    .widget-container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      width: 100%;
+      max-width: 420px;
+      height: 620px;
     }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    .widget-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
-    @media (max-width: 768px) {
-      h1 { font-size: 1.75rem; }
-      p { font-size: 1rem; }
-      .arrow { display: none; }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      color: #999;
+      font-size: 0.875rem;
+    }
+
+    footer a {
+      color: #FF6B35;
+      text-decoration: none;
+    }
+
+    @media (max-width: 480px) {
+      .widget-container {
+        max-width: 100%;
+        height: 550px;
+        border-radius: 16px;
+      }
+      
+      .intro h1 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+  <header>
+    <div class="logo-header">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="18" fill="white"/>
+        <path d="M12 28C12 28 14 24 20 24C26 24 28 28 28 28" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="15" cy="17" r="2" fill="#FF6B35"/>
+        <circle cx="25" cy="17" r="2" fill="#FF6B35"/>
+        <path d="M20 8L22 12H18L20 8Z" fill="#FF6B35"/>
       </svg>
+      <span>deturista</span>
     </div>
-    
-    <h1>Asistente Virtual Inteligente</h1>
-    <p>Prueba nuestro asistente de IA conversacional. Haz clic en el chat de la esquina inferior derecha para comenzar una conversación.</p>
-    
-    <div class="features">
-      <div class="feature">
-        <div class="feature-icon">💬</div>
-        <h3>Chat en tiempo real</h3>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🎤</div>
-        <h3>Soporte de voz</h3>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🤖</div>
-        <h3>IA Avanzada</h3>
-      </div>
+  </header>
+
+  <main>
+    <div class="intro">
+      <h1>¡Hola! Soy Juan de Turista</h1>
+      <p>Tu asistente virtual para planificar el viaje perfecto</p>
     </div>
-  </div>
 
-  <div class="arrow">
-    Pruébalo aquí →
-  </div>
+    <div class="widget-container">
+      <iframe
+        src="https://app.contactship.ai/widgets/4f870114-c144-4aaa-8af7-8bfaf6b95d80/embed"
+        allow="microphone">
+      </iframe>
+    </div>
+  </main>
 
-  <!-- Contactship Widget -->
-  <!-- El widget funciona en producción (Netlify), no en localhost -->
-  <iframe
-    src="https://app.contactship.ai/widgets/4f870114-c144-4aaa-8af7-8bfaf6b95d80/embed"
-    style="position:fixed;bottom:20px;right:20px;height:600px;width:400px;border:none;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,0.3)"
-    allow="microphone">
-  </iframe>
+  <footer>
+    Powered by <a href="https://www.deturista.com" target="_blank">deturista.com</a>
+  </footer>
 </body>
 </html>
