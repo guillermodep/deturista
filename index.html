@@ -329,16 +329,13 @@
 
   </main>
 
-  <!-- Contactship Widget -->
-  <iframe
-    id="contactship-widget"
-    style="position:fixed;bottom:0;right:0;height:700px;width:400px;max-height:100vh;max-width:100vw;border:none;z-index:9999"
-    allow="microphone">
-  </iframe>
-  <script>
-    document.getElementById('contactship-widget').src =
-      'https://app.contactship.ai/widgets/4f870114-c144-4aaa-8af7-8bfaf6b95d80/embed?v=' + Date.now();
-  </script>
+  <!-- Contactship Widget via CDN -->
+  <contactship-widget
+    organization_id="1a05ce66-41e1-4a50-b381-d5c5300beb1e"
+    agent_id="18219317-21d3-4d9d-a989-1ac44edfed55"
+    config='{"companyLogo":"https://cs-test.nohaxito.xyz/1776264387650-deturista.png","companyName":"Juan, tu asistente! ","logoPosition":"center","forceDarkMode":false,"assistantName":"Juan DT","assistantImage":"https://cs-test.nohaxito.xyz/1776274364574-agente.png","assistantImageRound":"semi","triggerIcon":"headset","triggerIconColor":"#059669","triggerColor":"#2563EB","whatsappNumber":"08102102222","phoneNumber":"+54 261 476 4457","email":"juan@deturista.com","language":"es","maxCallDuration":300,"status":"online"}'>
+  </contactship-widget>
+  <script src="https://contactship-widget.onrender.com/widget.js"></script>
 
   <footer>
     <a href="https://www.deturista.com" target="_blank">deturista.com</a> — Vuelos, Hoteles, Paquetes y más!
