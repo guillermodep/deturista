@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juan de Turista | Asistente Virtual</title>
+  <title>Juan de Turista | Asistente Virtual - deturista.com</title>
+  <link rel="icon" type="image/x-icon" href="https://www.deturista.com/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -15,36 +16,24 @@
     }
 
     body {
-      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(180deg, #FFF5E6 0%, #FFE4C4 100%);
+      font-family: 'Open Sans', Arial, sans-serif;
+      background: #f5f5f5;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
     header {
-      background: #FF6B35;
-      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #e65100 0%, #ff6d00 100%);
+      padding: 0.75rem 2rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 10px rgba(255, 107, 53, 0.3);
-    }
-
-    .logo-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
 
     .logo-header img {
-      height: 40px;
-    }
-
-    .logo-header span {
-      color: white;
-      font-size: 1.5rem;
-      font-weight: 700;
+      height: 50px;
     }
 
     main {
@@ -53,34 +42,36 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
+      padding: 1.5rem;
+      background: linear-gradient(180deg, #fff8e1 0%, #ffecb3 50%, #ffe082 100%);
     }
 
     .intro {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     .intro h1 {
-      color: #333;
+      color: #e65100;
       font-size: 1.75rem;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 0.5rem;
     }
 
     .intro p {
-      color: #666;
+      color: #5d4037;
       font-size: 1rem;
     }
 
     .widget-container {
       background: white;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
       overflow: hidden;
       width: 100%;
       max-width: 420px;
-      height: 620px;
+      height: 600px;
+      border: 1px solid #e0e0e0;
     }
 
     .widget-container iframe {
@@ -90,26 +81,48 @@
     }
 
     footer {
+      background: #37474f;
       text-align: center;
-      padding: 1.5rem;
-      color: #999;
-      font-size: 0.875rem;
+      padding: 1rem;
+      color: #b0bec5;
+      font-size: 0.8rem;
     }
 
     footer a {
-      color: #FF6B35;
+      color: #ffb74d;
       text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 480px) {
+      header {
+        padding: 0.5rem 1rem;
+      }
+
+      .logo-header img {
+        height: 40px;
+      }
+
+      main {
+        padding: 1rem;
+      }
+
       .widget-container {
         max-width: 100%;
-        height: 550px;
-        border-radius: 16px;
+        height: 520px;
+        border-radius: 10px;
       }
       
       .intro h1 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+      }
+
+      .intro p {
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -117,7 +130,9 @@
 <body>
   <header>
     <div class="logo-header">
-      <img src="https://www.deturista.com/images/logo.png" alt="deturista logo">
+      <a href="https://www.deturista.com" target="_blank">
+        <img src="https://www.deturista.com/images/logo.png" alt="deturista.com">
+      </a>
     </div>
   </header>
 
@@ -136,7 +151,7 @@
   </main>
 
   <footer>
-    Powered by <a href="https://www.deturista.com" target="_blank">deturista.com</a>
+    <a href="https://www.deturista.com" target="_blank">deturista.com</a> - Vuelos, Hoteles, Paquetes y más!
   </footer>
 </body>
 </html>
