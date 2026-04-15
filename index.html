@@ -7,7 +7,7 @@
   <link rel="icon" type="image/x-icon" href="https://www.deturista.com/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -17,61 +17,187 @@
 
     body {
       font-family: 'Open Sans', Arial, sans-serif;
-      background: #f5f5f5;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      background: #0a0a1a;
     }
 
+    /* HEADER */
     header {
-      background: #ffffff;
-      padding: 1rem 2rem;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 0.75rem 2rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 1px 20px rgba(91,45,130,0.1);
+      position: relative;
+      z-index: 10;
     }
 
     .logo-header img {
-      height: 45px;
+      height: 42px;
+      transition: transform 0.3s ease;
     }
 
+    .logo-header img:hover {
+      transform: scale(1.05);
+    }
+
+    /* HERO BACKGROUND */
     main {
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem;
-      background: linear-gradient(180deg, #f8f4fc 0%, #efe6f7 50%, #e8daf0 100%);
+      padding: 2rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(91,45,130,0.85) 0%, rgba(91,45,130,0.6) 40%, rgba(30,80,160,0.7) 100%),
+        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80') center/cover no-repeat;
     }
 
+    main::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* FLOATING PARTICLES */
+    .particles {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 50%;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .particles span:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; animation-duration: 8s; }
+    .particles span:nth-child(2) { left: 25%; top: 60%; animation-delay: 1s; animation-duration: 6s; }
+    .particles span:nth-child(3) { left: 50%; top: 30%; animation-delay: 2s; animation-duration: 7s; }
+    .particles span:nth-child(4) { left: 70%; top: 70%; animation-delay: 0.5s; animation-duration: 9s; }
+    .particles span:nth-child(5) { left: 85%; top: 15%; animation-delay: 1.5s; animation-duration: 5s; }
+    .particles span:nth-child(6) { left: 40%; top: 80%; animation-delay: 3s; animation-duration: 7s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+      50% { transform: translateY(-30px) scale(1.5); opacity: 0.7; }
+    }
+
+    /* INTRO */
     .intro {
       text-align: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+      z-index: 2;
+      animation: fadeInDown 0.8s ease-out;
     }
 
     .intro h1 {
-      color: #5B2D82;
-      font-size: 1.75rem;
+      font-family: 'Playfair Display', serif;
+      color: #ffffff;
+      font-size: 2rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
     }
 
     .intro p {
-      color: #5d4037;
+      color: rgba(255,255,255,0.85);
       font-size: 1rem;
+      font-weight: 400;
     }
 
-    .widget-container {
-      background: white;
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      color: white;
+      font-size: 0.8rem;
+      margin-top: 0.75rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6); }
+      50% { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+    }
+
+    /* BADGES */
+    .badges {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 2;
+      animation: fadeInDown 0.8s ease-out 0.2s backwards;
+    }
+
+    .badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.6rem 1rem;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+      color: white;
+      font-size: 0.7rem;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .badge:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.2);
+    }
+
+    .badge-icon {
+      font-size: 1.25rem;
+    }
+
+    /* WIDGET */
+    .widget-container {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.3),
+        0 0 0 1px rgba(255,255,255,0.2),
+        inset 0 1px 0 rgba(255,255,255,0.3);
       overflow: hidden;
       width: 100%;
       max-width: 420px;
-      height: 600px;
-      border: 1px solid #e0e0e0;
+      height: 580px;
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 0.8s ease-out 0.4s backwards;
     }
 
     .widget-container iframe {
@@ -80,49 +206,69 @@
       border: none;
     }
 
+    /* ANIMATIONS */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* FOOTER */
     footer {
-      background: #5B2D82;
+      background: #1a0a2e;
       text-align: center;
-      padding: 1rem;
-      color: #b0bec5;
+      padding: 1.25rem;
+      color: rgba(255,255,255,0.5);
       font-size: 0.8rem;
+      border-top: 1px solid rgba(91,45,130,0.3);
     }
 
     footer a {
-      color: #ffffff;
+      color: rgba(255,255,255,0.85);
       text-decoration: none;
       font-weight: 600;
+      transition: color 0.2s;
     }
 
     footer a:hover {
-      text-decoration: underline;
+      color: #ffffff;
     }
 
+    /* RESPONSIVE */
     @media (max-width: 480px) {
       header {
         padding: 0.5rem 1rem;
       }
 
       .logo-header img {
-        height: 40px;
+        height: 36px;
       }
 
       main {
-        padding: 1rem;
+        padding: 1.25rem 1rem;
+      }
+
+      .intro h1 {
+        font-size: 1.5rem;
+      }
+
+      .badges {
+        gap: 0.5rem;
+      }
+
+      .badge {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.65rem;
       }
 
       .widget-container {
         max-width: 100%;
-        height: 520px;
-        border-radius: 10px;
-      }
-      
-      .intro h1 {
-        font-size: 1.4rem;
-      }
-
-      .intro p {
-        font-size: 0.9rem;
+        height: 500px;
+        border-radius: 12px;
       }
     }
   </style>
@@ -137,9 +283,33 @@
   </header>
 
   <main>
+    <div class="particles">
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+
     <div class="intro">
       <h1>¡Hola! Soy Juan de Turista</h1>
       <p>Tu asistente virtual para planificar el viaje perfecto</p>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        En línea ahora
+      </div>
+    </div>
+
+    <div class="badges">
+      <div class="badge">
+        <span class="badge-icon">🕐</span>
+        24/7
+      </div>
+      <div class="badge">
+        <span class="badge-icon">⚡</span>
+        Respuesta inmediata
+      </div>
+      <div class="badge">
+        <span class="badge-icon">🏷️</span>
+        Mejores precios
+      </div>
     </div>
 
     <div class="widget-container">
@@ -151,7 +321,7 @@
   </main>
 
   <footer>
-    <a href="https://www.deturista.com" target="_blank">deturista.com</a> - Vuelos, Hoteles, Paquetes y más!
+    <a href="https://www.deturista.com" target="_blank">deturista.com</a> — Vuelos, Hoteles, Paquetes y más!
   </footer>
 </body>
 </html>
